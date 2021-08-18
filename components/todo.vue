@@ -12,8 +12,8 @@ export default {
 	methods: {
 		clear: function (i) {
 			this.lists.splice(i,1)
-			this.$emit('save')
-		}
+			localStorage.setItem('lists', JSON.stringify(this.lists));
+		},
 	}
 }
 </script>

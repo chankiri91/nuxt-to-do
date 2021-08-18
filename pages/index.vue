@@ -15,14 +15,12 @@
     <div>
       <!-- <todo v-for="(list, i) in lists" v-bind="lists" v-bind:key="i"></todo> -->
       <Todo :lists="lists"/>
-      <Clear @save="save"/>
     </div>
   </div>
 </template>
 
 <script>
 import Todo from '../components/todo.vue'
-import Clear from '../components/clear.vue'
 
 export default {
   data: () => ({
@@ -30,10 +28,11 @@ export default {
       {title: '買い物', body: '牛乳を買う'},
       {title: '宿題', body: '数学12~24ページ'}
     ],
+    title: '',
+    body: ''
   }),
   components: {
     Todo,
-    Clear
   },
   methods: {
     add: function() {
