@@ -15,13 +15,14 @@
     <div>
       <!-- <todo v-for="(list, i) in lists" v-bind="lists" v-bind:key="i"></todo> -->
       <Todo :lists="lists"/>
+      <Clear @save="save"/>
     </div>
   </div>
 </template>
 
 <script>
 import Todo from '../components/todo.vue'
-
+import Clear from '../components/clear.vue'
 
 export default {
   data: () => ({
@@ -31,13 +32,10 @@ export default {
     ],
   }),
   components: {
-    Todo
+    Todo,
+    Clear
   },
   methods: {
-    clear: function(i) {
-      this.lists.splice(i,1)
-      this.save()
-    },
     add: function() {
       if(this.title === '' || this.body === '')return
 
