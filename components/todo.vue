@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import Vue from "../pages/index.vue"
 
 export default {
 	props: ['lists'],
