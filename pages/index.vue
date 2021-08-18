@@ -13,7 +13,6 @@
       <input type="submit" value="追加" @click="add">
     </div>
     <div>
-      <!-- <todo v-for="(list, i) in lists" v-bind="lists" v-bind:key="i"></todo> -->
       <Todo :lists="lists"/>
     </div>
   </div>
@@ -53,8 +52,5 @@ export default {
       }
     }
   },
-  mounted: function() {
-    this.load()
-  }
 }
 </script>

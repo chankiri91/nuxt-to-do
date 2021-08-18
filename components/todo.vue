@@ -1,7 +1,11 @@
 <template>
-	<ul>
+ <div>
+   <ul>
 		<li v-for="(list, i) in lists" :key="i">「{{list.title}}」 {{list.body}}<button @click="clear(i)">削除</button></li>
 	</ul>
+  <p>{{ lists }}</p>
+ </div>
+	
 </template>
 
 <script>
