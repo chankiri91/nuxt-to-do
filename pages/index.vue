@@ -13,21 +13,26 @@
       <input type="submit" value="追加" @click="add">
     </div>
     <div>
-      <ul v-for="(list, i) in lists" v-bind:key="i">
-        <li>「{{list.title}}」, 詳細:{{list.body}}<button @click="clear(i)">削除</button></li>
-      </ul>
+      <!-- <todo v-for="(list, i) in lists" v-bind="lists" v-bind:key="i"></todo> -->
+      <Todo :lists="lists"/>
     </div>
   </div>
 </template>
 
 <script>
+import Todo from '../components/todo.vue'
+
+
 export default {
   data: () => ({
     lists: [
       {title: '買い物', body: '牛乳を買う'},
       {title: '宿題', body: '数学12~24ページ'}
-    ]
+    ],
   }),
+  components: {
+    Todo
+  },
   methods: {
     clear: function(i) {
       this.lists.splice(i,1)
