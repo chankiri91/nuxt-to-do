@@ -48,7 +48,7 @@ export default {
       this.body = ''
     },
     hensyu(index) {
-      if(index > this.lists.length || index < this.lists.length)return
+      if(index > this.lists.length || index <= 0)return
       this.title = this.lists[index-1].title
       this.body = this.lists[index-1].body
     },
@@ -62,3 +62,7 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+
+</style>>
