@@ -8,13 +8,18 @@
     <div>
       <label for="body">内容：</label>
       <input type="text" v-model="body" placeholder="内容">
+      <input type="submit" value="追加" @click="add">
+      <input type="submit" value="編集" @click="edit(index)">
     </div>
     <div>
-      <input type="submit" value="追加" @click="add">
+      <label for="hensyu">編集したいもの：</label>
+      <input type="number" v-model="index">
+      <button @click="hensyu(index)" v-model="index">番目</button>
     </div>
     <div>
       <Todo :lists="lists"/>
     </div>
+    
   </div>
 </template>
 
@@ -28,19 +33,32 @@ export default {
       {title: '宿題', body: '数学12~24ページ'}
     ],
     title: '',
-    body: ''
+    body: '',
+    index: 1
   }),
   components: {
     Todo,
   },
   methods: {
-    add: function() {
+    add() {
       if(this.title === '' || this.body === '')return
 
       this.lists.push({title: this.title, body: this.body})
       this.title = ''
       this.body = ''
     },
+    hensyu(index) {
+      if(index > this.lists.length || index < this.lists.length)return
+      this.title = this.lists[index-1].title
+      this.body = this.lists[index-1].body
+    },
+    edit(index) {
+      if(this.title === '' || this.body === '')return
+
+      this.lists.splice(index-1, 1, {title: this.title, body: this.body})
+      this.title = ''
+      this.body = ''
+    }
   },
 }
 </script>
