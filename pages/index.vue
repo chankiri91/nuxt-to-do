@@ -40,17 +40,7 @@ export default {
       this.lists.push({title: this.title, body: this.body})
       this.title = ''
       this.body = ''
-      this.save()
     },
-    save: function() {
-      localStorage.setItem('lists', JSON.stringify(this.lists));
-    },
-    load: function() {
-      this.lists = JSON.parse( localStorage.getItem('lists') )
-      if( !this.lists ){
-        this.items = []
-      }
-    }
   },
 }
 </script>
