@@ -1,15 +1,17 @@
 <template>
   <div id="app">
     <h1>Nuxt To Do App</h1>
-    <div>
-      <label for="title">タイトル：</label>
-      <input type="text" v-model="title" placeholder="タイトル">
-    </div>
-    <div>
-      <label for="body">内容：</label>
-      <input type="text" v-model="body" placeholder="内容">
-      <input type="submit" value="追加" @click="add">
-      <input type="submit" value="編集" @click="edit(index)">
+    <div class="title-and-body">
+      <div>
+        <label for="title" >タイトル：</label>
+        <input type="text" v-model="title" placeholder="タイトル">
+      </div>
+      <div>
+        <label for="body">内容：</label>
+        <input type="text" v-model="body" placeholder="内容">
+        <input type="submit" value="追加" @click="add">
+        <input type="submit" value="編集" @click="edit(index)">
+      </div>
     </div>
     <div>
       <label for="hensyu">編集したいもの：</label>
@@ -63,6 +65,18 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+  #app {
+    font-size: 30px;
+    text-align: center;
+    line-height: 2;
+    h1 {
+      color: red;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      border-bottom: 1px solid black;
+    }
+    .title-and-body{
+      border: 1px solid black;
+    }
+  }
 </style>>

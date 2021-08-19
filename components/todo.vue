@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div id="todo">
    <ul>
 		<li v-for="(list, i) in lists" :key="i">「{{list.title}}」 {{list.body}}<button @click="clear(i)">削除</button></li>
 	</ul>
@@ -19,6 +19,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+	#todo {
+		display: inline-block;
+	}
 </style>
