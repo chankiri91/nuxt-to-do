@@ -13,9 +13,9 @@
         <input type="submit" value="編集" @click="edit(index)">
       </div>
     </div>
-    <div>
+    <div class="hensyu">
       <label for="hensyu">編集したいもの：</label>
-      <input type="number" v-model="index">
+      <input type="number" v-model="index" :disabled="banme">
       <button @click="hensyu(index)" v-model="index">番目</button>
     </div>
     <div>
@@ -36,7 +36,8 @@ export default {
     ],
     title: '',
     body: '',
-    index: 1
+    index: 1,
+    banme: false
   }),
   components: {
     Todo,
@@ -50,9 +51,13 @@ export default {
       this.body = ''
     },
     hensyu(index) {
-      if(index > this.lists.length || index <= 0)return
+      if(index > this.lists.length || index <= 0) {
+        alert('存在しません')
+        return
+      }
       this.title = this.lists[index-1].title
       this.body = this.lists[index-1].body
+      this.banme = true
     },
     edit(index) {
       if(this.title === '' || this.body === '')return
@@ -60,7 +65,8 @@ export default {
       this.lists.splice(index-1, 1, {title: this.title, body: this.body})
       this.title = ''
       this.body = ''
-    }
+      this.banme = false
+    },
   },
 }
 </script>
