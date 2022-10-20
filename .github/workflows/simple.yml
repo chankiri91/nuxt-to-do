@@ -1,0 +1,14 @@
+name: Shell Commands #ワークフローの名前
+
+on: [push] #ワークフロー実行のトリガーとなるイベント
+
+jobs: #ワークフローで実行するジョブ(複数記述可能)
+  run-shell-command: #ジョブの名前
+    runs-on: ubntu-latest #jobを実行するVMのOSを指定
+    steps: #jobの実行内容
+      - name: echo a string
+        run: echo "Hello World"
+      - name: multiline script
+        run: |
+          node -v
+          npm -v
