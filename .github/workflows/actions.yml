@@ -1,0 +1,15 @@
+name: Actions Workflow
+
+on: [push]
+
+jobs: 
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simple JS Action
+        id: greet #別のstepで読み込むためのid
+        uses: actions/hello-world-javascript-action@v1 #使用したい外部のアクション([ユーザ名/リポジトリ名]@[ブランチ名])
+        with: 
+          who-to-greet: John
+      - name: Log Greeting Time
+        run: echo "${{ steps.greet.outputs.time }}" #greetのstepを実行した時間を呼出
